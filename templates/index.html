@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<h1>Anotações de Enfermagem</h1>
+    <form action="/adicionar" method="post">
+        <input type="datetime-local" name="data_hora" required><br>
+        <textarea name="descricao_paciente" placeholder="Descrição do Paciente" required></textarea><br>
+        <input type="text" id="terminologia" name="terminologia" placeholder="Terminologia" required><br>
+        <input type="text" name="sinais_vitais" placeholder="Sinais Vitais" required><br>
+        <input type="text" name="nome_paciente" placeholder="Nome do Paciente" required><br>
+        <input type="text" name="nome_enfermeiro" placeholder="Nome do Enfermeiro" required><br>
+        <button type="submit">Adicionar Nota</button><br><br>
+        <a style="text-align: center;" href="ver_tabela">Ver a lista de Paciente</a>
+    </form>
+{% endblock %}

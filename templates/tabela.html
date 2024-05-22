@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<h1>Anotações de Enfermagem</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Data/Hora</th>
+            <th>Nome do Paciente</th>
+            <th>Nome do Enfermeiro</th>
+            <th>Descrição do Paciente</th>
+            <th>Terminologia</th>
+            <th>Sinais Vitais</th>
+            <th>Ações</th> 
+        </tr>
+    </thead>
+    <tbody>
+        {% for nota in notas %}
+            <tr>
+                <td>{{ nota.data_hora }}</td>
+                <td>{{ nota.nome_paciente }}</td>
+                <td>{{ nota.nome_enfermeiro }}</td>
+                <td>{{ nota.descricao_paciente }}</td>
+                <td>{{ nota.terminologia }}</td>
+                <td>{{ nota.sinais_vitais }}</td>
+                <td>
+                    <a class="botao" style="background-color:  #007acc;" href="" class="button">Editar</a>
+                    <a class="botao" style="background-color: crimson;" href="/deletar_nota/{{nota.id}}">Excluir</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table><br>
+<a href="/">voltar</a>
+{% endblock %}
