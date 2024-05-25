@@ -24,12 +24,12 @@
                 <td>{{ nota.terminologia }}</td>
                 <td>{{ nota.sinais_vitais }}</td>
                 <td>
-                    <a class="botao" style="background-color:  #007acc;" href="" class="button">Editar</a>
+                    <a class="botao" style="background-color:  #007acc;" href="/editar_nota/{{ nota.id }}" class="button">Editar</a>
                     <a class="botao" style="background-color: crimson;" href="/deletar_nota/{{nota.id}}">Excluir</a>
                 </td>
             </tr>
         {% endfor %}
     </tbody>
 </table><br>
-<a href="/">voltar</a>
+<a class="link" href="/">voltar</a>
 {% endblock %}

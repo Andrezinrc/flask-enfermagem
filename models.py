@@ -1,8 +1,11 @@
 from flask_sqlalchemy import SQLAlchemy
+from app import app
 
 db = SQLAlchemy()
+db.init_app(app)
 
-class Nota(db.Model):
+class Enfermagem(db.Model):
+    __tablename__ = 'notas'
     id = db.Column(db.Integer, primary_key=True)
     data_hora = db.Column(db.DateTime, nullable=False)
     descricao_paciente = db.Column(db.String(200), nullable=False)

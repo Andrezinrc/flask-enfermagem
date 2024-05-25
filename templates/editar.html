@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<h1>Editar {{ nota.nome_paciente }}</h1>
+    <form action="/editar_nota/{{ nota.id }}" method="post">
+        <input type="datetime-local" name="data_hora" value="{{ nota.data_hora }}" required><br>
+        <textarea name="descricao_paciente" placeholder="Descrição do Paciente" value="{{ nota.descricao_paciente }}" required></textarea><br>
+        <input type="text" id="terminologia" name="terminologia" placeholder="Terminologia" value="{{ nota.terminologia }}" required><br>
+        <input type="text" name="sinais_vitais" placeholder="Sinais Vitais" value="{{ nota.sinais_vitais }}" required><br>
+        <input type="text" name="nome_paciente" placeholder="Nome do Paciente" value="{{ nota.nome_paciente }}" required><br>
+        <input type="text" name="nome_enfermeiro" placeholder="Nome do Enfermeiro" value="{{ nota.nome_enfermeiro }}" required><br>
+        <button type="submit">Editar</button><br><br>
+        <a href="/ver_tabela">voltar</a>
+	{% with mensagems = get_flashed_messages() %}
+	{% if mensagems %}
+		{% for mensagem in mensagems %}
+		<<>{{ mensagem }} </p>
+		{% endfor %}
+	{% endif %}
+	{% endwith %}
+    </form>
+{% endblock %}
